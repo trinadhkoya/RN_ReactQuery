@@ -2,8 +2,8 @@ import {View, Text, Image, StyleSheet} from 'react-native';
 
 const ProductItem = ({item}) => (
   <View>
-    <Text style={styles.title}>{item.title}</Text>
-    <Image source={{uri: item.thumbnail}} style={styles.image} />
+    <Text style={styles.title}>{item?.title}</Text>
+    <Image source={{uri: item?.thumbnail}} style={styles.image} />
   </View>
 );
 
