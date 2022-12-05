@@ -1,17 +1,11 @@
 import React from 'react';
 import {ActivityIndicator, FlatList, TouchableOpacity} from 'react-native';
-import {useQuery} from '@tanstack/react-query';
-import {getAllProducts} from '../servcies/product.service';
 import ProductItem from '../components/ProductItem';
+import useProductsQuery from '../queries/products/useProductsQuery';
 
 function ProdList(props) {
-  // Queries
-  const query = useQuery({
-    queryKey: ['products'],
-    queryFn: getAllProducts,
-    staleTime: 30000,
-    cacheTime: 300000,
-  });
+
+  const query = useProductsQuery();
 
   if (query.isLoading || query.isFetching) {
     return <ActivityIndicator />;
